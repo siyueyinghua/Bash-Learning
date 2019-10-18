@@ -3,13 +3,13 @@
 #********************************************************************
 #            Copyright (C) wuyou Technologies, 2012-3
 #
-#  #FileName                : setuplog.sh
-#  #Writter                 : wuyou
+#  #FileName                : loglevelbetter.sh
+#  #Writter                 : wuyou update by yemingguang
 #  #Sub Modules             :
 #  #Mudule Name             : LOG
-#  #Language                : shell
-#  #Environment             : 2285 + Suse Linux SP1
-#  #First Release Date      : 2012-3-15
+#  #Language                : shell-Bash
+#  #Environment             : Ubuntu 18.04
+#  #First Release Date      : 2019-10-18
 #  #Description             : This script contains the MiniOS Log
 #                             interfaces and generic Utility functions.
 #********************************************************************
@@ -60,7 +60,7 @@ function g_LOG_Init()
     # handle the options
     # the option is as follows:
     # [-m move-or-not] [-l log-level] [-d log-directory] [-t log-also-2-terminal]'
-    while getopts ":m:l:d:t:" option
+    while getopts ":m:l:d:t:h" option
     do
         case ${option} in
             m )
@@ -77,10 +77,19 @@ function g_LOG_Init()
                 ;;
             t )
                 log2term2=${OPTARG}
-                #echo The option logfile is: ${log2term2}
+                echo The option logfile is: ${log2term2}
+                ;;
+            h )
+                echo usage: g_LOG_Init [arguments]
+                echo Arguments:
+                echo " -m           move the former log file or not? 1-Yes, 0-No"
+                echo " -l           log print verbose level, from 0 to 7"
+                echo " -d           log file, by indirect or direct directory"
+                echo " -t           if the log message will be print to terminal too? 1-Yes, 0-No"
+                echo " -h           print this help message"
                 ;;
             ? )
-                echo 'right usage: g_LOG_Init [-m move-or-not] [-l log-level] [-d log-directory] [-t log-also-2-terminal]'
+                echo 'right usage: g_LOG_Init [-m move-or-not] [-l log-level] [-d log-directory] [-t log-also-2-terminal] [-h]'
                 ;;
             * )
                 echo "The case default"

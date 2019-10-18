@@ -51,7 +51,8 @@ logThis "priority /: ${priority["/"]}" "DEBUG"
 
 while read -r line
 do
-    #the set -f means noglob, so that bash will not do pathname expansion
+    #the set -f means noglob, so that bash will not do pathname expansion,
+    #such as "* expanded to any path name, ~ expanded to home directory"
     #logThis "the expr is: ${line}" "INFO"
     #set -f
     #logThis "the expr is: ${line}" "DEBUG"

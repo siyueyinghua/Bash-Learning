@@ -2,7 +2,6 @@
 
 inputfile="../../data/symbol.txt"
 source "../logging/loglevelbetter.sh"
-#log_file="/var/log/yesirelincoln/bashdebug.log"
 log_file="./bashdebug.log"
 
 function push
